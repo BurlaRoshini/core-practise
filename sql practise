@@ -59,7 +59,7 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 
 SELECT ord_date, salesman_id, ord_no, purch_amt FROM orders;
 
-
+6.
 From the following table, write a SQL query to locate salespeople who live in the city of 'Paris'. Return salesperson's name, city.
 
          _id |    name    |   city   | commission 
@@ -70,6 +70,9 @@ From the following table, write a SQL query to locate salespeople who live in th
         5006 | Mc Lyon    | Paris    |       0.14
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
+        
+        SELECT name,city FROM EMPLOYEE where city = "Paris";
+
 
 7. From the following table, write a SQL query to find customers whose grade is 200. Return customer_id, cust_name, city, grade, salesman_id.
 
@@ -83,6 +86,7 @@ From the following table, write a SQL query to locate salespeople who live in th
         3009 | Geoff Cameron  | Berlin     |   100 |        5003
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
         3001 | Brad Guzan     | London     |       |        5005
+        select customer_id, cust_name, city, grade, salesman_id from sales where grade = 200;
 
 8.From the following table, write a SQL query to find orders that are delivered by a salesperson with ID. 5001. Return ord_no, ord_date, purch_amt.
 
@@ -100,6 +104,7 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70012       250.45      2012-06-27  3008         5002
 70011       75.29       2012-08-17  3003         5007
 70013       3045.6      2012-04-25  3002         5001
+SELECT ord_no, ord_date, purch_amt from sales where salesman_id = 5001;
 
 9.From the following table, write a SQL query to find the Nobel Prize winner(s) for the year 1970. Return year, subject and winner.
 
@@ -129,6 +134,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Literature                Joseph Brodsky                                Russia                 Linguist
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
+select year, subject and winner from prizes where year = 1970;
 
 10. From the following table, write a SQL query to find the Nobel Prize winner in ‘Literature’ for 1970. Return winner.
 
@@ -159,4 +165,4 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-
+select winner from prizes where year = 1970 and subject = "Literature";
