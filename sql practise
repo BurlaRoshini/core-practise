@@ -134,7 +134,8 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Literature                Joseph Brodsky                                Russia                 Linguist
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
-select year, subject and winner from prizes where year = 1970;
+
+select year, subject,winner from prizes where year = 1970;
 
 10. From the following table, write a SQL query to find the Nobel Prize winner in ‘Literature’ for 1970. Return winner.
 
