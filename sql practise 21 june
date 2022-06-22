@@ -196,7 +196,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-select winner from prizes where subject = "physics";
+select winner from prizes where year>=1950 AND subject = "physics";
 
 
 12. FROM THE FOLLOWING TABLE, WRITE A SQL QUERY TO FIND THE NOBEL PRIZE WINNERS IN ‘CHEMISTRY’ BETWEEN THE YEARS 1965 AND 1975. BEGIN AND END VALUES ARE INCLUDED. RETURN YEAR, SUBJECT, WINNER, AND COUNTRY.
@@ -227,7 +227,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-select  YEAR, SUBJECT, WINNER, AND COUNTRY from prizes where year between 1965 and 1975;
+select  YEAR, SUBJECT, WINNER, AND COUNTRY from prizes where  subject = ‘Chemistry’ AND year>=1965 AND year<=1975;;
 
 13.WRITE A SQL QUERY TO DISPLAY ALL DETAILS OF THE PRIME MINISTERIAL WINNERS AFTER 1972 OF MENACHEM BEGIN AND YITZHAK RABIN.
 YEAR SUBJECT                   WINNER                                        COUNTRY                CATEGORY
@@ -257,7 +257,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-select * from prizes where category = Prime Minister union select * from prizes  where year between 1972 and 1995;
+select * from prizes where year >1972 AND winner IN (‘Menachem Begin’, ‘Yitzhak Rabin’);
 
 14.FROM THE FOLLOWING TABLE, WRITE A SQL QUERY TO RETRIEVE THE DETAILS OF THE WINNERS WHOSE FIRST NAMES MATCH WITH THE STRING ‘LOUIS’. RETURN YEAR, SUBJECT, WINNER, COUNTRY, AND CATEGORY.
 YEAR SUBJECT                   WINNER                                        COUNTRY                CATEGORY
@@ -287,7 +287,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-select * from prizes where name like 'Louis';
+select * from prizes where winner like 'Louis %';
 
 15.FROM THE FOLLOWING TABLE, WRITE A SQL QUERY TO FIND THE NOBEL PRIZE WINNERS IN 1970 EXCLUDING THE SUBJECTS OF PHYSIOLOGY AND ECONOMICS. RETURN YEAR, SUBJECT, WINNER, COUNTRY, AND CATEGORY.
 YEAR SUBJECT                   WINNER                                        COUNTRY                CATEGORY
@@ -317,7 +317,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-select * from prizes where subject not in ('Physiology','Economics');
+select * from prizes where year=1970 AND subject not in ('Physiology','Economics');
 
 16.FROM THE FOLLOWING TABLE, WRITE A SQL QUERY TO COMBINE THE WINNERS IN 'PHYSIOLOGY' BEFORE 1971 AND WINNERS IN 'PEACE' ON OR AFTER 1974. RETURN YEAR, SUBJECT, WINNER, COUNTRY, AND CATEGORY.
 YEAR SUBJECT                   WINNER                                        COUNTRY                CATEGORY
@@ -345,8 +345,9 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Physics                   Johannes Georg Bednorz                        Germany                Scientist
 1987 Literature                Joseph Brodsky                                Russia                 Linguist
 1987 Economics                 Robert Solow                                  USA                    Economist
-1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
-
+1994 Literature                Kenzaburo Oe                                  Japan    
+Linguist
+SELECT * FROM nobel_win WHERE (subject =’Physiology’ AND year<1971) UNION (SELECT * FROM nobel_win WHERE (subject =’Peace’ AND year>=1974));
 
 17. FROM THE FOLLOWING TABLE, WRITE A SQL QUERY TO FIND THE DETAILS OF THE NOBEL PRIZE WINNER 'JOHANNES GEORG BEDNORZ'. RETURN YEAR, SUBJECT, WINNER, COUNTRY, AND CATEGORY.
 YEAR SUBJECT                   WINNER                                        COUNTRY                CATEGORY
@@ -376,7 +377,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-select * from prizes where name = 'Johannes Georg Bednorz';
+select * from prizes where winner = 'Johannes Georg Bednorz';
 
 18. FROM THE FOLLOWING TABLE, WRITE A SQL QUERY TO FIND NOBEL PRIZE WINNERS FOR THE SUBJECT THAT DOES NOT BEGIN WITH THE LETTER 'P'. RETURN YEAR, SUBJECT, WINNER, COUNTRY, AND CATEGORY. ORDER THE RESULT BY YEAR, DESCENDING.
 YEAR SUBJECT                   WINNER                                        COUNTRY                CATEGORY
@@ -406,7 +407,7 @@ YEAR SUBJECT                   WINNER                                        COU
 1987 Economics                 Robert Solow                                  USA                    Economist
 1994 Literature                Kenzaburo Oe                                  Japan                  Linguist
 
-select * from prizes where subject not like 'p'  year order by desc year;
+select * from prizes where subject not like 'p%' order by year desc ,winner;
 
 19. FROM THE FOLLOWING TABLE, WRITE A SQL QUERY TO SELECT A RANGE OF PRODUCTS WHOSE PRICE IS IN THE RANGE RS.200 TO RS.600. BEGIN AND END VALUES ARE INCLUDED. RETURN PRO_ID, PRO_NAME, PRO_PRICE, AND PRO_COM.
  PRO_ID PRO_NAME                       PRO_PRICE    PRO_COM
