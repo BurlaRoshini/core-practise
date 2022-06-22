@@ -14,7 +14,7 @@ Sample table: customer
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
         3001 | Brad Guzan     | London     |       |        5005
 
- select * from customer where city = New York or select * from customer where grade > 100;
+ select * from customer where NOT (city = 'New York' or  grade > 100);
 
  
 
@@ -36,9 +36,12 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70011       75.29       2012-08-17  3003         5007
 70013       3045.6      2012-04-25  3002         5001
 
- select * from orders where ord_date not like '2012-09-10' AND (salesman_id > 5005 or (purch_amt > 1000));
 
- 
+ SELECT *
+FROM orders
+WHERE NOT ((ord_date =’2012-09-10′
+AND salesman_id>5005)
+OR purch_amt>1000.00);
 
 3. From the following table, write a SQL query to find the details of those salespeople whose commissions range from 0.10 to0.12. Return salesman_id, name, city, and commission.  
 
@@ -52,8 +55,10 @@ salesman_id |    name    |   city   | commission
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
 
- select * from salesman  where commissions between 0.10 and 0.12; 
-
+SELECT salesman_id,name,city,commission
+FROM salesman
+WHERE (commission > 0.10
+AND commission< 0.12);
  
 
 4. From the following table, write a SQL query to find details of all orders with a purchase amount less than 200 or exclude orders with an order date greater than or equal to ‘2012-02-10’ and a customer ID less than 3009. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
@@ -75,10 +80,8 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70013       3045.6      2012-04-25  3002         5001
 
  select * from orders where (purch_amt<200 OR NOT (ord_date>='2012-02-10' AND customer_id<3009));
-
-
  
-
+ 
 5. From the following table, write a SQL query to find all orders that meet the following conditions. Exclude combinations of order date equal to ‘2012-08-17’ or customer ID greater than 3005 and purchase amount less than 1000.
 
 Sample table : orders
@@ -155,6 +158,9 @@ A001/DJ_402\44\2015
 A001/DJ_402\45\2015%100
 A001/DJ_402%45\2015/300
  
+ SELECT *
+FROM testtable
+WHERE col1 NOT LIKE ‘%/_%’ ESCAPE ‘/’;
 
 8. From the following table, write a SQL query to identify those rows where col1 does not contain the escape character underscore ( _ ). Return col1.
 
@@ -180,6 +186,9 @@ col1
 A001/DJ-402%45\2015/200
 A001/DJ-402\44
  
+ SELECT *
+FROM testtable
+WHERE col1 NOT LIKE ‘%/_%’ ESCAPE ‘/’;
 
 9. From the following table, write a SQL query to find rows in which col1 contains the forward slash character ( / ). Return col1. 
 
@@ -211,7 +220,10 @@ A001/DJ-402%45\2015/200
 A001/DJ_402\45\2015%100
 A001/DJ_402%45\2015/300
 A001/DJ-402\44
- 
+
+ SELECT *
+FROM testtable
+WHERE col1 LIKE ‘%//%’ ESCAPE ‘/’;
 
 10. From the following table, write a SQL query to identify those rows where col1 does not contain the forward slash character ( / ). Return col1.
 
@@ -236,6 +248,10 @@ Sample Output:
 col1
 A001_DJ-402-2014-2015
 A002_DJ-401-2014-2015
+
+SELECT *
+FROM testtable
+WHERE col1 NOT LIKE ‘%//%’ ESCAPE ‘/’
  
 
 11. From the following table, write a SQL query to find those rows where col1 contains the string ( _/ ). Return col1.  
@@ -262,6 +278,9 @@ col1
 A001/DJ-402\44_/100/2015
 A001_\DJ-402\44_/100/2015
  
+SELECT *
+FROM testtable
+WHERE col1 LIKE ‘%/_//%’ ESCAPE ‘/’;
 
 12. From the following table, write a SQL query to find those rows where col1 does not contain the string ( _/ ). Return col1.  
 
@@ -294,6 +313,9 @@ A001/DJ_402\45\2015%100
 A001/DJ_402%45\2015/300
 A001/DJ-402\44
  
+SELECT *
+FROM testtable
+WHERE col1 NOT LIKE ‘%/_//%’ ESCAPE ‘/’;
 
 13. From the following table, write a SQL query to find those rows where col1 contains the character percent ( % ). Return col1. 
 
@@ -319,6 +341,11 @@ col1
 A001/DJ-402%45\2015/200
 A001/DJ_402\45\2015%100
 A001/DJ_402%45\2015/300
+
+SELECT *
+FROM testtable
+WHERE col1 LIKE ‘%/%%’ ESCAPE’/’;
+
 14. From the following table, write a SQL query to find those rows where col1 does not contain the character percent ( % ). Return col1.
 
 Sample table: testtable
@@ -348,6 +375,11 @@ A001/DJ_401
 A001/DJ_402\44
 A001/DJ_402\44\2015
 A001/DJ-402\44
+
+SELECT *
+FROM testtable
+WHERE col1 NOT  LIKE ‘%/%%’ ESCAPE’/’;
+
 15. From the following table, write a SQL query to find the details of those salespeople who live in cities other than Paris and Rome. Return salesman_id, name, city, commission.   
 
 Sample table: salesman
@@ -368,3 +400,7 @@ salesman_id	name		city		commission
 5001		James Hoog	New York	0.15
 5005		Pit Alex	London		0.11
 5003		Lauson Hen	San Jose	0.12
+
+SELECT *
+FROM salesman
+WHERE NOT city IN(‘Paris’,’Rome’);
