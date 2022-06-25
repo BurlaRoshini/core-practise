@@ -18,4 +18,370 @@
 Online Shopping
 Home LOgin wishlist add to cart
 
-2.
+2.<!DOCTYPE html>
+<style>
+:root {
+–black: #1f1f1f;
+–white: #fff;
+–yellow: #ffc554;
+–deep-yellow: #ffc727;
+–bg-yellow: #fffaf1;
+–btn-yellow: #fff4d4;
+–footer-yellow: #fff9e9;
+–grey: #737373;
+–box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+–transition: all 0.2s linear;
+}
+
+*,
+*::after,
+*::before {
+box-sizing: inherit;
+margin: 0;
+padding: 0;
+}
+
+html {
+font-size: 62.5%;
+box-sizing: border-box;
+}
+
+body {
+font-family: “Ubuntu”, sans-serif;
+font-size: 1.6rem;
+font-weight: 400;
+color: var(–black);
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+li {
+list-style: none;
+}
+
+img {
+height: 100%;
+}
+
+section {
+padding: 2rem 9%;
+}
+
+.yellow {
+color: var(–yellow);
+}
+
+/* Header */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+padding: 1rem 7%;
+height: 8rem;
+background: var(–white);
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: var(–box-shadow);
+z-index: 1000;
+}
+
+.logo {
+font-size: 3.6rem;
+font-weight: 700;
+}
+
+.navbar a {
+font-weight: 500;
+transition: var(–transition);
+padding: 1rem;
+border-bottom: 2px solid transparent;
+}
+
+.navbar a:not(:last-child) {
+margin-right: 1rem;
+}
+
+.navbar a:hover {
+color: var(–yellow);
+border-color: var(–yellow);
+}
+
+.btn {
+display: inline-block;
+color: var(–yellow);
+background-color: var(–btn-yellow);
+padding: 1rem;
+border-radius: 0.5rem;
+transition: var(–transition);
+}
+
+.btn:hover {
+box-shadow: var(–box-shadow);
+}
+
+.header .hamburger img {
+width: 3rem;
+}
+
+.header .hamburger {
+display: none;
+}
+.home {
+padding-top: 13rem;
+display: grid;
+grid-template-columns: 1fr 1fr ;
+align-items: center;
+}
+
+.home .image img {
+width: 100%;
+}
+
+.home .content h1 {
+font-size: 5.8rem;
+font-weight: 700;
+margin-bottom: 2rem;
+}
+
+.home .content p {
+color: var(–grey);
+font-size: 1.8rem;
+margin-bottom: 2rem;
+}
+
+.home .content .home-btn {
+display: inline-block;
+color: var(–white);
+font-weight: 500;
+border-radius: 0.5rem;
+background-color: var(–yellow);
+padding: 1rem 1.5rem;
+margin-top: 1rem;
+transition: var(–transition);
+}
+
+.home .content .home-btn:hover {
+transform: translateY(-3px);
+box-shadow: var(–box-shadow);
+}
+
+@media (max-width: 999px) {
+.home .content h1 {
+font-size: 4rem;
+}
+}
+
+@media (max-width: 768px) {
+.home .content h1 {
+font-size: 3rem;
+margin-bottom: 1.5rem;
+}
+
+.home .content p {
+font-size: inherit;
+margin-bottom: 1.5rem;
+}
+
+.home {
+grid-template-columns: 1fr;
+}
+
+.home .image {
+max-width: 40rem;
+margin: 0 auto;
+}
+}
+
+/* Services */
+section.services {
+background-color: var(–bg-yellow);
+padding: 5rem 9%;
+}
+
+.services .top {
+text-align: center;
+margin-bottom: 5rem;
+}
+
+.services .top h2 {
+font-size: 4rem;
+margin-bottom: 1.5rem;
+}
+
+.services .top p {
+width: 80%;
+margin: 0 auto;
+font-size: 1.8rem;
+color: var(–grey);
+}
+
+.services .bottom {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+gap: 3rem;
+}
+
+.services .bottom .box {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 3rem 2rem;
+border-radius: 0.5rem;
+}
+
+.services .bottom .box:hover {
+background-color: var(–white);
+box-shadow: var(–box-shadow);
+}
+
+.services .bottom .box img {
+height: 6rem;
+}
+
+.services .bottom .box h4 {
+font-size: 2.4rem;
+margin: 1.5rem 0;
+}
+
+.services .bottom .box p {
+color: var(–grey);
+margin-bottom: 1.5rem;
+}
+
+.services .bottom .box a {
+display: inline-block;
+font-weight: 500;
+}
+
+.services .bottom .box a img {
+height: 1rem;
+}
+</style>
+<html lang=”en”>
+<head>
+<meta charset=”UTF-8″ />
+<meta http-equiv=”X-UA-Compatible” content=”IE=chrome” />
+<meta name=”viewport” content=”width=device-width, initial-scale=1.0″ />
+<title>Deliveryoo</title>
+<!– StyleSheets –>
+<link rel=”stylesheet” href=”css/styles.css” />
+</head>
+<body>
+
+
+<header class=”header”>
+<a href=”/” class=”logo”>Delive<span class=”yellow”>roo</span></a>
+
+<nav class=”navbar”>
+<a href=”#home”>Home</a>
+<a href=”#services”>Services</a>
+<a href=”#about”>About Us</a>
+<a href=”#contact”>Contact Us</a>
+<a href=”” class=”btn”>Make an Order</a>
+</nav>
+
+<!– Hamburger –>
+<div class=”hamburger”>
+<img src=”./images/grid-outline.svg” alt=”” />
+</div>
+</header>
+
+<!– Home –>
+<section class=”home” id=”home”>
+<div class=”content”>
+
+<h1 >Order Your Product <span class=”yellow”>Easier & Faster.</span></h1>
+
+<p>
+Delivero is a leading global online food delivery marketplace,
+connecting consumers and restaurants through its platform in 24
+countries.
+</p>
+<a href=”#” class=”home-btn”>Go to Menu</a>
+</div>
+<div class=”image”>
+<img src=”./images/Delivery address.svg” alt=””>
+</div>
+</section>
+
+<!– Services –>
+<section class=”services” id=”services”>
+<div class=”top”>
+<h2><span class=”yellow”>Why</span> We are the Best</h2>
+<p>
+Lorem ipsum is placeholder text commonly used in the graphic, print,
+and publishing industries for previewing layouts and visual mockups.
+Lorem ipsum is placeholder.
+</p>
+</div>
+<script>
+</script>
+<div class=”bottom”>
+<div class=”box”>
+<img src=”./images/delivery-man.svg” alt=”” />
+<h4>Free Delivery</h4>
+<p>
+Lorem ipsum dolor sit amet,adipiscing elit. Eu, montes, metus
+porttitor consectetur pretium. Euismod imperdiet pellentesque cursus
+in netus.
+</p>
+<a href=”#”>View More <img src=”./images/btn-arrow.svg” alt=”” /> </a>
+</div>
+<div class=”box”>
+<img src=”./images/fast-food.svg” alt=”” />
+<h4>Healthy Foods</h4>
+<p>
+Lorem ipsum dolor sit amet,adipiscing elit. Eu, montes, metus
+porttitor consectetur pretium. Euismod imperdiet pellentesque cursus
+in netus.
+</p>
+<a href=”#”>View More <img src=”./images/btn-arrow.svg” alt=”” /> </a>
+</div>
+<div class=”box”>
+<img src=”./images/order-food.svg” alt=”” />
+<h4>Online Ordering</h4>
+<p>
+Lorem ipsum dolor sit amet,adipiscing elit. Eu, montes, metus
+porttitor consectetur pretium. Euismod imperdiet pellentesque cursus
+in netus.
+</p>
+<a href=”#”>View More <img src=”./images/btn-arrow.svg” alt=”” /> </a>
+</div>
+</div>
+</section>
+</body>
+</html>
+
+output : 
+Deliveroo
+Home Services About Us Contact Us Make an Order
+””
+
+Order Your Product Easier & Faster.
+Delivero is a leading global online food delivery marketplace, connecting consumers and restaurants through its platform in 24 countries.
+
+Go to Menu
+””
+Why We are the Best
+Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. Lorem ipsum is placeholder.
+
+””
+Free Delivery
+Lorem ipsum dolor sit amet,adipiscing elit. Eu, montes, metus porttitor consectetur pretium. Euismod imperdiet pellentesque cursus in netus.
+
+View More ””
+””
+Healthy Foods
+Lorem ipsum dolor sit amet,adipiscing elit. Eu, montes, metus porttitor consectetur pretium. Euismod imperdiet pellentesque cursus in netus.
+
+View More ””
+””
+Online Ordering
+Lorem ipsum dolor sit amet,adipiscing elit. Eu, montes, metus porttitor consectetur pretium. Euismod imperdiet pellentesque cursus in netus.
+
+View More ””
