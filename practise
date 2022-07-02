@@ -238,3 +238,41 @@ xhttp.send()->get
 send(string)->post
 
 setRequestHeader()
+
+*********************************afternoon*********************************************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale="1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>JavaScript Color Changing App</title>
+</head>
+<body>
+	<style>
+		#back{
+	background-color:red;
+	width: 800px;
+	height: 500px;
+	
+	</style>
+	<div id="back">
+	     My background color will change when my button below is clicked.
+	</div>
+	
+	<button id="button">Click me</button>
+	
+	<script>
+var colors = ['blue,'green','yellow,'black','purple',orange','red'];
+var button = document.getElementById('button');
+button.addEventListener('click',function(){
+	var back=document.getElementById('back');
+	back.style.background=colors[4];
+	
+})
+   </script>
+</body>
+</html>
+
