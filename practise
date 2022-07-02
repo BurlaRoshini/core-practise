@@ -1,0 +1,240 @@
+# core-practise
+****8********30 june**************88
+Action tags:
+jsp:forward:is used for forwarding the request and response to oher resources.
+jsp:include:is used for including another resource.<%jsp:include file="header.jsp"%>
+jsp:body:is used for defining dynamically-defined    
+
+
+
+Implicit objects:
+
+out:javax.servlet.jsp.JSPwriter
+
+<% out.println("Hello");
+int a=request.getParameter("input");%>
+
+request: javax.servlet.http.HttpServletRequest
+
+response: javax.servlet.http.HttpServletResponse
+
+session: javax.servlet.http.HttpSession
+
+application: javax.servlet.ServletContext
+
+exception: javax.servlet.jsp.JspException
+
+page: java.lang.Object
+
+
+
+
+Request:
+
+Enumeration getParameterNames():
+String getAuthType():
+Object getAttribute(String name):
+ServletInputStream getInputStream():
+String getCharacterEncoding():
+String getContentType():
+String getPathInfo():
+String getProtocol():
+String getRemoteAddr():
+String getRemoteHost():
+String getRemoteUser():
+String getRequestURI():
+String getRequestedSessionId():
+String getServletPath():
+String[] getParameterValues(String name):
+boolean isSecure():
+int getContentLength():
+int getServerPort():
+int getIntHeader(String name):
+
+
+
+Response:
+
+String encodeURL(String url):
+String encodeRedirectURL(String url):
+boolean containsHeader(String name):
+void addDateHeader(String name,String value):
+void addHeader(String name,String value):
+boolean isCommitted():
+void addIntHeader(String name,int value):
+void reset():
+void sendError(int sc):
+response.reset():
+void sendError(int sc,String msg):
+void setCharacterEncoding(String charset):
+void setContentType(String type):
+void setDateHeader(String name,long date):
+void setContentLength(int len):
+void setHeader(String name,String value):
+void setIntHeader(String name,int value):
+
+
+************1 july***********
+
+<?xml version="1.0" encoding ="UTF-8"?>
+<friendList>
+  <friend gender="male">
+    <name>Arun</name>
+  </friend>
+  <friend>
+    <name>Kumar</name>
+  </friend>
+  <friend>
+    <name>Ram</name>
+  </friend>
+  <bestfriend>
+    <name>Roy</name>
+  </bestfriend>
+</friendList>
+
+
+xml html
+dtd 
+xsd   
+
+
+
+
+xmlns:prefix="uri"
+xml
+<furniture xmlns:f="http://w3.org/furniture"
+xmlns:h="http://w3.org/html">
+<table>
+    <types:f>
+        <diningtable:f>table</diningtable>
+        <table2:f>table</table2>
+    </types:f>
+</table:f>
+
+<table>
+<tr:h>
+<td:h>dining table</td>
+<td:h>table2</td>
+</tr:h>
+</table:h>
+
+
+Afternoon
+
+1.
+abc.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="abc.xsl"?>
+<class>
+    <student>
+         <firstname>Albert</firstname>
+         <lastname>Einstein</lastname>
+         <age>15</age>
+    </student>
+     <student>
+         <firstname>Arun</firstname>
+         <lastname>Kumar</lastname>
+         <age>22</age>
+    </student>
+     <student>
+         <firstname>Issac</firstname>
+         <lastname>Newton</lastname>
+         <age>25</age>
+    </student>
+</class>
+
+abc.xsl:
+
+<xsl:stylesheet version="1.0"
+xmlns:xsl = "http://www.w3.org/1999/XSL/Transform">
+<xsl:template match = "/class">
+<html>
+    <body>
+    <h1>Students List</h1>
+        <table border="2" width="500px" height="300px">
+            <tr bgcolor="red">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+        <xsl:for-each select="student">
+            <tr>
+            <td><xsl:value-of select="firstname"/></td>
+            <td><xsl:value-of select="lastname"/></td>
+            <td><xsl:value-of select="age"/></td>
+            </tr>
+        </xsl:for-each>
+        </table>
+    </body>
+</html>
+</xsl:template>
+</xsl:stylesheet> 
+
+
+
+2.
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/CSS" href="abc.CSS"?>
+<class>
+    <student>
+         <firstname>Albert</firstname>
+         <lastname>Einstein</lastname>
+         <age>15</age>
+    </student>
+     <student>
+         <firstname>Arun</firstname>
+         <lastname>Kumar</lastname>
+         <age>22</age>
+    </student>
+     <student>
+         <firstname>Issac</firstname>
+         <lastname>Newton</lastname>
+         <age>25</age>
+    </student>
+</class>
+css:
+firstname{ color:red;}
+
+*****************2july**************
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Welcome to Javascript</h1>
+<p id="change"> change your content here</p>
+<input type="button" onclick="fun()">Change content</button>
+
+<script>
+    function fun(){
+        var xhttp = new XMLHttpRequest();;
+         xhttp.onreadystatechange = function(){
+                document.getElementById('Change').innerHTML=this.responseText();
+        }
+         
+         xhttp.open("GET","ajax.txt");
+         xhttp.send();   
+}
+</script>
+</body>
+</html>
+
+
+
+Methods()
+Request:
+var xhttp=new XMLHttpRequest()-> object
+
+abort()->
+
+getAllResponseHeaders();
+
+xhttp.open(method,url,async,user,password);
+xhttp.open("GET","ajax.txt",true)
+
+xhttp.send()->get
+
+send(string)->post
+
+setRequestHeader()
